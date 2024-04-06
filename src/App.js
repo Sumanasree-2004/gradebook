@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+// App.js
+
+import React, { useState } from 'react';
+import Header from './Components/Header';
+import MainBlock from './Components/MainBlock';
+import StatisticsBlock from './Components/Statistics';
+import Footer from './Components/Footer';
 import './App.css';
 
 function App() {
+  const [showStatistics, setShowStatistics] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <MainBlock showStatistics={showStatistics} />
+      {showStatistics && <StatisticsBlock />}
+      <Footer />
     </div>
   );
 }
